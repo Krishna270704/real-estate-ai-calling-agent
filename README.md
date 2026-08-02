@@ -19,8 +19,8 @@ Voice Platform:
 Vapi ✅
 
 Deployment:
-Backend - ?
-Frontend - ?
+Backend - Render
+Frontend - Vercel
 
 Project Name:
 Real Estate AI Calling Agent
