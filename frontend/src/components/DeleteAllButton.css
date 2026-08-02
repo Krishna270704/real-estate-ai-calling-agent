@@ -1,0 +1,90 @@
+.delete-all {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid #F3C6C0;
+  border-radius: var(--radius-lg);
+  background: var(--color-danger-soft);
+  color: var(--color-danger);
+  font-size: 14.5px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.delete-all:hover:not(:disabled) {
+  background: #FBDCD8;
+  border-color: #EEA79E;
+}
+
+.delete-all:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.delete-all--confirm {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 16px 20px;
+  border: 1px solid #F3C6C0;
+  border-radius: var(--radius-lg);
+  background: var(--color-danger-soft);
+  cursor: default;
+}
+
+.delete-all__confirm-text {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+  font-size: 13.5px;
+  font-weight: 600;
+  color: var(--color-danger);
+}
+
+.delete-all__confirm-actions {
+  display: flex;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.delete-all__cancel-btn,
+.delete-all__confirm-btn {
+  padding: 9px 16px;
+  border-radius: var(--radius-pill);
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+}
+
+.delete-all__cancel-btn {
+  background: transparent;
+  border: 1px solid #F3C6C0;
+  color: var(--color-ink-soft);
+}
+
+.delete-all__cancel-btn:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.delete-all__confirm-btn {
+  background: var(--color-danger);
+  color: #fff;
+}
+
+.delete-all__confirm-btn:hover:not(:disabled) {
+  background: #C93D30;
+}
+
+.delete-all__confirm-btn:disabled,
+.delete-all__cancel-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

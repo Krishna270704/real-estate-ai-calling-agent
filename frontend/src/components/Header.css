@@ -1,0 +1,77 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+
+.header__identity {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+
+.header__logo {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-ink);
+  color: #fff;
+}
+
+.header__title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--color-ink);
+}
+
+.header__subtitle {
+  margin: 2px 0 0;
+  font-size: 13.5px;
+  color: var(--color-ink-soft);
+}
+
+.header__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  flex-shrink: 0;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-success-soft);
+  color: var(--color-success);
+  font-size: 13px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.header__badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--color-success);
+  box-shadow: 0 0 0 0 rgba(23, 166, 114, 0.5);
+  animation: badge-pulse 2s ease-out infinite;
+}
+
+@keyframes badge-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(23, 166, 114, 0.45); }
+  70% { box-shadow: 0 0 0 6px rgba(23, 166, 114, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(23, 166, 114, 0); }
+}
+
+@media (max-width: 560px) {
+  .header {
+    flex-wrap: wrap;
+  }
+}
