@@ -1,35 +1,36 @@
+```mermaid
 flowchart LR
-    %% =========================================================
     %% Real Estate AI Calling Agent - System Architecture
-    %% =========================================================
 
-    U[User / Agent] --> FE[React + Vite Frontend\n(Call UI + Lead Dashboard)]
+    U[User / Agent] --> FE[React + Vite Frontend<br/>Call UI + Lead Dashboard]
 
-    FE -->|Start Voice Call| VAPI[Vapi Voice AI Platform\nSTT + Conversation Orchestration + TTS]
+    FE -->|Start Voice Call| VAPI[Vapi Voice AI Platform<br/>STT + Conversation Orchestration + TTS]
     VAPI -->|Live Audio + AI Dialogue| U
 
-    VAPI -->|Post-call Transcript + Metadata\nWebhook Event| BE[FastAPI Backend\n/webhook + REST API]
+    VAPI -->|Post-call Transcript + Metadata<br/>Webhook Event| BE[FastAPI Backend<br/>/webhook + REST API]
 
-    BE -->|Lead Extraction Prompt| GROQ[Groq LLM\nStructured Lead Intelligence]
-    GROQ -->|Extracted Entities\nName, Budget, Location, Intent, Timeline| BE
+    BE -->|Lead Extraction Prompt| GROQ[Groq LLM<br/>Structured Lead Intelligence]
+    GROQ -->|Extracted Entities: Name, Budget, Location, Intent, Timeline| BE
 
-    BE -->|Generate Call Summary\nand Qualification Notes| BE
+    BE -->|Generate Call Summary and Qualification Notes| SUM[Call Summaries & Notes]
     BE -->|Persist Leads + Summaries| DB[(SQLite Database)]
 
-    FE -->|GET /leads\nGET /leads/:id| BE
+    FE -->|GET /leads<br/>GET /leads/:id| BE
     BE -->|JSON Lead Records + Summaries| FE
 
-    subgraph CLIENT[Client Layer]
+    subgraph ClientLayer[Client Layer]
         U
         FE
     end
 
-    subgraph AI[Voice + Intelligence Layer]
+    subgraph AIlayer[Voice + Intelligence Layer]
         VAPI
         GROQ
     end
 
-    subgraph APP[Application Layer]
+    subgraph APPlayer[Application Layer]
         BE
         DB
+        SUM
     end
+```
