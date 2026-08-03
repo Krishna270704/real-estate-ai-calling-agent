@@ -95,28 +95,22 @@ async def webhook(request: Request):
     print("=" * 50)
 
     try:
-        # Vapi transcript
         conversation = data["message"]["artifact"]["transcript"]
+        print("Transcript OK")
 
-        print(conversation)
-
-        # Extract Lead
         lead = extract_lead(conversation)
+        print("Lead Extracted:", lead)
 
-        # Generate Summary
         summary = generate_summary(conversation)
+        print("Summary Generated")
 
-        # Save into database
-        save_lead(
-            lead,
-            summary
-        )
+        save_lead(lead, summary)
+        print("Lead Saved")
 
-        print("Lead Saved Successfully")
+        print(get_all_leads())
 
-    except Exception as e:
-        print("Webhook Error:", e)
+    except Exception:
+        import traceback
+        traceback.print_exc()
 
-    return {
-        "success": True
-    }
+    return {"success": True}
