@@ -190,9 +190,13 @@ VITE_VAPI_ASSISTANT_ID=your_assistant_id
 
 ---
 
+---
+
 ### Voice Calling
 
 ![Voice Calling](assets/voice-call.png)
+
+---
 
 ---
 
@@ -206,7 +210,6 @@ VITE_VAPI_ASSISTANT_ID=your_assistant_id
 
 Complete project documentation is available in:
 
-**docs/Assignment_Documentation.pdf**
 
 ---
 
